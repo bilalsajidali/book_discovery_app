@@ -1,0 +1,2 @@
+# Hamza the Casual Reader
+Hamza is a 22-year-old who enjoys reading but doesn't have a lot of time to devote to it. He usually reads on his commute to work or during his lunch break. Hamza tends to stick to a few favorite genres and authors and is hesitant to try something new. He prefers physical books to eBooks because he enjoys the tactile experience of reading. Hamza is looking for an app that can help him discover new books that he will enjoy without having to spend a lot of time searching for them.
