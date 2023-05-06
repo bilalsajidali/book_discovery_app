@@ -1,0 +1,2 @@
+# Bilal, the Avid Reader
+Bilal is a 22-year-old book lover who reads at least 2-3 books a week. He loves exploring different genres and authors and is always on the lookout for new books to add to his reading list. Bilal is an active member of several online book clubs and enjoys discussing books with other readers. He usually reads on his tablet or smartphone, and he prefers eBooks because they are convenient and easy to carry around.
