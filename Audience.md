@@ -1,0 +1,2 @@
+# Target Audience
+The target audience for the Book Discovery App is people who love reading and are always on the lookout for new books to add to their reading list. This includes avid readers, book club members, and anyone who wants to make reading a regular part of their life.
