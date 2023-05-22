@@ -11,6 +11,12 @@
         "email": "bilalsajid@gmail.com",
         "password": "bilalsajid123",
         "profile_pic": "bilalsajid.jpg"
+      },
+      "user3": {
+        "username": "Sir Fakhir Shaheen",
+        "email": "fakhirshaheen@gmail.com",
+        "password": "fakhirshaheen",
+        "profile_pic": "fakhirshaheen.jpg"
       }
     },
     "All_Books": {
@@ -31,7 +37,16 @@
             "book_rating": 3.8,
             "book_description": "Moby-Dick; or, The Whale is an 1851 novel by American writer Herman Melville. The book is the sailor Ishmael's narrative of the maniacal quest of Ahab, captain of the whaling ship Pequod, for vengeance against Moby Dick, the giant white sperm whale that bit off his leg on the ship's previous voyage.",
             "book_image": "moby-dick.jpg"
-        }
+        },
+         "book3": {
+            "book_title": "Book Lovers",
+            "book_author": "Book Lovers",
+            "book_publish": 2022,
+            "book_genre": "Romance",
+            "book_rating": 4.2,
+            "book_description": "Colleen HooverAn insightful, delightful, instant #1 New York Times bestseller from the author of Beach Read and People We Meet on Vacation.",
+            "book_image": "book-lovers.jpg"
+      }
     },
     "Saved_Books": {
         "user1": {
@@ -46,5 +61,18 @@
             "book2": true,
             "book3": true
         }
-    }
+    },
+    "Added_Books": {
+      "user1": {
+        "book1": true,
+        "book2": true
+      },
+      "user2": {
+        "book3": true
+      },
+      "user3": {
+        "book1": true,
+        "book3": true
+      }
+    }
 }
