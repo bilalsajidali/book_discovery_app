@@ -3,6 +3,7 @@ import { View, ScrollView, TouchableOpacity, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Large_Form from '../components/Large_Form';
 import Form_Label from '../components/Form_Label'
+import Password_Form from '../components/Password_Form';
 import Normal_Text from '../components/Normal_Text';
 import Logo from '../components/Logo';
 import Large_Button from '../components/Large_Button';
