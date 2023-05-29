@@ -103,3 +103,135 @@ const CreateScreen = () => {
         console.log('Error adding book to Added_Books for user:', error);
         setMessage('Error adding book to Added_Books for user');
       });
+
+    // Validate the publishDate input
+    if (/^\d{4}$/.test(publishDate)) {
+      bookData.book_publish = publishDate;
+
+      if (imageUri) {
+        const imageName = `book_${bookRef.key}`;
+        const storageRef = firebase.storage().ref().child(imageName);
+        const imageUploadTask = storageRef.put(imageUri);
+
+        imageUploadTask
+          .then(() => {
+            console.log('Image uploaded successfully');
+            return storageRef.getDownloadURL();
+          })
+          .then(downloadURL => {
+            console.log('Download URL:', downloadURL);
+            setImageUrl(downloadURL);
+            bookData.book_image = downloadURL;
+            return bookRef.set(bookData);
+          })
+          .then(() => {
+            console.log('Book and image added successfully');
+            setMessage('Successfully Added Book');
+            resetForm();
+          })
+          .catch(error => {
+            console.log('Error adding book and image:', error);
+            setMessage('Error adding book and image');
+          });
+      } else {
+        bookRef
+          .set(bookData)
+          .then(() => {
+            console.log('Book added successfully');
+            setMessage('Successfully Added Book');
+            resetForm();
+          })
+          .catch(error => {
+            console.log('Error adding book:', error);
+            setMessage('Error adding book');
+          });
+      }
+    } else {
+      console.log('Invalid publish date');
+      setMessage('Invalid publish date');
+    }
+  };
+
+  const handleImageSelection = uri => {
+    setImageUri(uri);
+    setImageUrl(null);
+  };
+
+  const handleCancel = () => {
+    resetForm();
+  };
+
+  return (
+    <View>
+      <GoBack />
+      <Circle topPosition={113} leftPosition={-8}></Circle>
+      <Circle topPosition={285} leftPosition={236}></Circle>
+      <Circle topPosition={550} leftPosition={-20}></Circle>
+      <Circle topPosition={749} leftPosition={240}></Circle>
+
+      {/* Display message container */}
+      {message !== '' && (
+        <View style={styles.messageContainer}>
+          <Text style={message.includes('Successfully') ? styles.messageTextSuccess : styles.messageTextError}>
+            {message}
+          </Text>
+        </View>
+      )}
+
+      <Form_Label text="Book Title" topPosition={168} leftPosition={92} />
+      <Large_Form
+        topPosition={190}
+        onChangeText={text => setBookTitle(text)}
+        value={bookTitle}
+      />
+
+      <Form_Label text="Author" topPosition={261} leftPosition={92} />
+      <Large_Form topPosition={285} onChangeText={text => setAuthor(text)} value={author} />
+
+      <Form_Label text="Publish Date" topPosition={354} leftPosition={92} />
+      <Small_Form
+        top={378}
+        left={92}
+        onChangeText={text => setPublishDate(text)}
+        value={publishDate}
+      />
+
+      <Form_Label text="Genre" topPosition={354} leftPosition={224} />
+      <Small_Form top={378} left={224} onChangeText={text => setGenre(text)} value={genre} />
+
+      <Form_Label text="Description" topPosition={444} leftPosition={92} />
+      <Description_Area
+        onChangeText={text => setDescription(text)}
+        value={description}
+      />
+
+      <UploadImageButton onSelect={handleImageSelection} />
+
+      <Small_Button title="Save" topPosition={704} leftPosition={92} onPress={saveBook} />
+      <Small_Button
+        title="Cancel"
+        topPosition={704}
+        leftPosition={224}
+        onPress={handleCancel}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  messageContainer: {
+    position: 'absolute',
+    top: 140,
+    left: 92,
+  },
+  messageTextSuccess: {
+    fontSize: 16,
+    color: 'green',
+  },
+  messageTextError: {
+    fontSize: 16,
+    color: 'red',
+  },
+});
+
+export default CreateScreen;
