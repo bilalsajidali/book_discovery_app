@@ -71,7 +71,7 @@ const LoginScreen = () => {
         <Large_Form value={email} onChangeText={setEmail} topPosition={430} />
 
         <Form_Label text="Password" topPosition={513} leftPosition={92} />
-        <Large_Form value={password} onChangeText={setPassword} topPosition={538} secureTextEntry />
+        <Password_Form value={password} onChangeText={setPassword} topPosition={538} />
 
         <Large_Button title="Login" topPosition={621} onPress={handleLoginPress} />
 
