@@ -38,6 +38,10 @@ const LoginScreen = () => {
   const handleSignUpPress = () => {
     navigation.navigate('SignUp');
   };
+    
+  const handleForgetPassword = () => {
+    navigation.navigate('ResetPassword'); 
+  };
 
   const handleLoginPress = () => {
     firebase
@@ -76,7 +80,9 @@ const LoginScreen = () => {
 
         <Large_Button title="Login" topPosition={621} onPress={handleLoginPress} />
 
-        <SubHeading text="Forget Password?" topPosition={699} leftPosition={136} color="#262A56" />
+        TouchableOpacity onPress={handleForgetPassword}>
+        <SubHeading text="Forget Password?" topPosition={482} leftPosition={136} color="#262A56"/>
+        </TouchableOpacity>
 
         <Normal_Text text="Don't have an account? " topPosition={766} leftPosition={67} absolutePosition={true}/>
         <TouchableOpacity style={{ position: 'absolute', top: 766, left: 282 }} onPress={handleSignUpPress}>
