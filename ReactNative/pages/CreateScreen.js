@@ -1,0 +1,14 @@
+import React, { useState } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import GoBack from '../components/GoBack';
+import Circle from '../components/Circle';
+import Form_Label from '../components/Form_Label';
+import Large_Form from '../components/Large_Form';
+import Small_Form from '../components/Small_Form';
+import Description_Area from '../components/Description_Area';
+import UploadImageButton from '../components/Upload_Image_Button';
+import Small_Button from '../components/Small_Button';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/database';
+import 'firebase/compat/storage';
+import 'firebase/compat/auth';
