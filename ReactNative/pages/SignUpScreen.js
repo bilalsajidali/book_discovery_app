@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import Logo from '../components/Logo';
 import Form_Label from '../components/Form_Label';
 import Large_Form from '../components/Large_Form';
+import Password_Form from '../components/Password_Form';
 import Large_Button from '../components/Large_Button';
 import Normal_Text from '../components/Normal_Text';
 import SubHeading from '../components/SubHeading';
@@ -114,19 +115,17 @@ const SignUpScreen = () => {
         <Large_Form value={email} onChangeText={setEmail} topPosition={383} />
 
         <Form_Label text="Password" topPosition={461} leftPosition={92} />
-        <Large_Form
+        <Password_Form
           value={password}
           onChangeText={setPassword}
           topPosition={487}
-          secureTextEntry
         />
 
         <Form_Label text="Confirm Password" topPosition={564} leftPosition={92} />
-        <Large_Form
+        <Password_Form
           value={confirmPassword}
           onChangeText={setConfirmPassword}
           topPosition={590}
-          secureTextEntry
         />
 
         <Large_Button title="SignUp" topPosition={674} onPress={handleSignUpPress} />
