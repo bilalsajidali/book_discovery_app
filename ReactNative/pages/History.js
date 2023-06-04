@@ -11,6 +11,7 @@ import 'firebase/compat/database';
 import 'firebase/compat/storage';
 import 'firebase/compat/auth';
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyB874SwK2FLGOf3PTtDbmAmUEDwCmejqH4",
   authDomain: "bookdiscoveryapp.firebaseapp.com",
