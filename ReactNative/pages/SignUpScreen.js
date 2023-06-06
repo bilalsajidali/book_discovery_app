@@ -130,13 +130,35 @@ const SignUpScreen = () => {
 
         <Large_Button title="SignUp" topPosition={674} onPress={handleSignUpPress} />
 
-        <Normal_Text text="Already Registered? " topPosition={770} leftPosition={102} absolutePosition={true}/>
-        <TouchableOpacity
-          style={{ position: 'absolute', top: 766, left: 287 }}
-          onPress={handleLoginPress}
-        >
-          <SubHeading text="Login" color="#262A56" />
-        </TouchableOpacity>
+        <View 
+  style={{ 
+    flexDirection: 'row', 
+    position: 'absolute', 
+    top: 770, 
+    alignSelf: 'center' 
+  }}
+>
+  <Text 
+    style={{ 
+      fontSize: 18, 
+      fontFamily: 'Montserrat-Regular',
+    }}
+  >
+    {"Already Registered? "}
+  </Text>
+  <TouchableOpacity onPress={handleLoginPress}>
+    <Text 
+      style={{ 
+        fontSize: 20, 
+        fontFamily: 'Montserrat-Bold', 
+        fontWeight: 'bold', 
+        color: '#262A56'
+      }}
+    >
+      {"Login"}
+    </Text>
+  </TouchableOpacity>
+</View>
 
         <Circle topPosition={-72} leftPosition={-20} />
         <Circle topPosition={395} leftPosition={270} />
