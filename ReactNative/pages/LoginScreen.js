@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { View, ScrollView, TouchableOpacity, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Large_Form from '../components/Large_Form';
-import Form_Label from '../components/Form_Label'
 import Password_Form from '../components/Password_Form';
+import Form_Label from '../components/Form_Label'
 import Normal_Text from '../components/Normal_Text';
 import Logo from '../components/Logo';
 import Large_Button from '../components/Large_Button';
@@ -38,7 +38,7 @@ const LoginScreen = () => {
   const handleSignUpPress = () => {
     navigation.navigate('SignUp');
   };
-    
+
   const handleForgetPassword = () => {
     navigation.navigate('ResetPassword'); 
   };
@@ -49,22 +49,25 @@ const LoginScreen = () => {
       .signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
         console.log('User logged in:', userCredential.user);
-        navigation.navigate('Create');
+        // Clear the form and error message
+        setEmail('');
+        setPassword('');
+        setErrorMessage(''); 
+        navigation.navigate('Home');
       })
       .catch((error) => {
         setErrorMessage('Incorrect email or password');
       });
   };
-
+  
+  
   return (
-    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-      <View>
+    <View style={{ alignItems: 'center', justifyContent: 'center' }}>
         <Logo topPosition={105} />
 
         <Normal_Text
           text="Your Personalized Literary Journey"
-          topPosition={310}
-          leftPosition={59}
+          topPosition={300}
           absolutePosition={true}
         />
 
@@ -72,29 +75,37 @@ const LoginScreen = () => {
           <Text style={styles.errorMessage}>{errorMessage}</Text>
         ) : null}
 
-        <Form_Label text="Email" topPosition={404} leftPosition={92} />
+        <Form_Label text="Email" topPosition={404}  />
         <Large_Form value={email} onChangeText={setEmail} topPosition={430} />
 
-        <Form_Label text="Password" topPosition={513} leftPosition={92} />
+        <Form_Label text="Password" topPosition={513}  />
         <Password_Form value={password} onChangeText={setPassword} topPosition={538} />
 
         <Large_Button title="Login" topPosition={621} onPress={handleLoginPress} />
 
-        TouchableOpacity onPress={handleForgetPassword}>
-        <SubHeading text="Forget Password?" topPosition={482} leftPosition={136} color="#262A56"/>
+        <TouchableOpacity onPress={handleForgetPassword}>
+          <Text style={{ fontSize: 20, fontFamily: 'Montserrat-Bold', fontWeight: 'bold', color: '#262A56', position: 'absolute', top: errorMessage ? 332 : 480, alignSelf: 'center', width: 200, textAlign: 'center' }}>
+            {"Forget Password?"}
+          </Text>
         </TouchableOpacity>
 
-        <Normal_Text text="Don't have an account? " topPosition={766} leftPosition={67} absolutePosition={true}/>
-        <TouchableOpacity style={{ position: 'absolute', top: 766, left: 282 }} onPress={handleSignUpPress}>
-          <SubHeading text="SignUp" color="#262A56" />
-        </TouchableOpacity>
+        <View style={{ flexDirection: 'row', position: 'absolute', top: 755, alignSelf: 'center' }}>
+          <Text style={{ fontSize: 18, fontFamily: 'Montserrat-Regular', }}>
+            {"Don't have an account?"}
+          </Text>
+          <TouchableOpacity onPress={handleSignUpPress}>
+            <Text style={{ fontSize: 20, fontFamily: 'Montserrat-Bold', fontWeight: 'bold', color: '#262A56', marginLeft:3 }}>
+              {"SignUp"}
+            </Text>
+          </TouchableOpacity>
+        </View>
+
 
         <Circle topPosition={-39} leftPosition={0}></Circle>
         <Circle topPosition={395} leftPosition={270}></Circle>
         <Circle topPosition={651} leftPosition={-64}></Circle>
         <Circle topPosition={790} leftPosition={282}></Circle>
       </View>
-    </ScrollView>
   );
 };
 
